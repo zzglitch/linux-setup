@@ -1,7 +1,7 @@
 linux-setup
 ===========
 
-Setup script for Ubuntu.  Modeled after the https://github.com/webcoyote/linux-setup.
+Setup script for Ubuntu.  Modeled after https://github.com/webcoyote/linux-setup but tailored to my setup.
 
 Installation
 ============
