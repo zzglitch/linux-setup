@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Make sure this script is NOT run as root
+# Don't run as root
 if [ $(id -u) -eq 0 ]
 then
   echo 'ERROR: This script should not be run as root.'
@@ -17,29 +17,59 @@ fi
 
 
 # Update package manifests
-sudo add-apt-repository ppa:webupd8team/java -y
+sudo add-apt-repository ppa:webupd8team/sublime-text-3
 sudo apt-get update -y
 
 
+# Base Ubuntu packages
+sudo apt-get install dkms
+
+
 # Install core packages
-sudo apt-get install git-core -y
-sudo apt-get install meld -y
-sudo apt-get install tree -y
+sudo apt-get install git subversion cmake wget curl tmux meld tree
 
 
-# Install java
-sudo apt-get install oracle-java8-installer -y
+# Java
+sudo apt-get install openjdk-8-jdk maven ant
+
+
+# Python
+sudo apt-get install python-pip
+sudo pip install virtualenv virtualenvwrapper
+mkdir ~/.venv
+echo "" >> ~/.bashrc
+echo "# Python Virtualenv Wrapper" >> ~/.bashrc
+echo "export WORKON_HOME=~/.venv" >> ~/.bashrc
+echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.bashrc
+
+
+# Go
+sudo apt-get install golang
+
+
+# Erlang
+sudo apt-get install erlang
+
+
+# Sublime
+sudo apt-get install sublime-text-installer
+ln -s /opt/sublime_text/sublime_text ~/bin/sublime
+
+
+# Docker
+curl -sSL https://get.docker.com/ | sh
+sudo pip install docker-compose
 
 
 # Get rest of linux-setup from git
-if [ ! -d "$HOME/dev/linux-setup" ]
+if [ ! -d "$HOME/projects/linux-setup" ]
 then
-  mkdir -p ~/dev
-  git clone git://github.com/zzglitch/linux-setup.git ~/dev/linux-setup
+  mkdir -p ~/projects
+  git clone git://github.com/zzglitch/linux-setup.git ~/projects/linux-setup
 fi
 
 
-# Link files in dev/home to user's home directory
+# Link files in linux-setup/home to user's home directory
 function link_homedir_files () {
   for file in $1/*; do
   if [[ -d $file ]]; then
@@ -51,5 +81,5 @@ function link_homedir_files () {
   done
 }
 shopt -s dotglob
-link_homedir_files ~/dev/linux-setup/home ~
+link_homedir_files ~/projects/linux-setup/home ~
 shopt -u dotglob
