@@ -9,7 +9,7 @@ Installation
 ============
 
      sudo apt-get install -qq -y curl
-     bash << (curl -s https://raw.githubusercontent.com/zzglitch/linux-setup/master/linux-setup.sh)
+     bash < <(curl -s https://raw.githubusercontent.com/zzglitch/linux-setup/master/linux-setup.sh)
 
 
 
