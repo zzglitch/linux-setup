@@ -20,22 +20,17 @@ fi
 sudo add-apt-repository ppa:webupd8team/sublime-text-3
 sudo apt-get update -y
 
-
 # Base Ubuntu packages
 sudo apt-get install -y dkms
-
 
 # Install core packages
 sudo apt-get install -y git subversion cmake wget curl tmux meld tree
 
-
 # Java
 sudo apt-get install -y openjdk-8-jdk maven ant
 
-
 # Scala
 sudo apt-get install -y scala
-
 
 # Python
 sudo apt-get install -y python-pip
@@ -46,24 +41,19 @@ echo "# Python Virtualenv Wrapper" >> ~/.bashrc
 echo "export WORKON_HOME=~/.venv" >> ~/.bashrc
 echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.bashrc
 
-
 # Go
 sudo apt-get install -y golang
 
-
 # Erlang
 sudo apt-get install -y erlang
-
 
 # Sublime
 sudo apt-get install -y sublime-text-installer
 ln -s /opt/sublime_text/sublime_text ~/bin/sublime
 
-
 # Docker
 curl -sSL https://get.docker.com/ | sh
 sudo pip install docker-compose
-
 
 # Get rest of linux-setup from git
 if [ ! -d "$HOME/projects/linux-setup" ]
@@ -71,7 +61,6 @@ then
   mkdir -p ~/projects
   git clone git://github.com/zzglitch/linux-setup.git ~/projects/linux-setup
 fi
-
 
 # Link files in linux-setup/home to user's home directory
 function link_homedir_files () {
