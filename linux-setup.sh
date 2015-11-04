@@ -22,19 +22,23 @@ sudo apt-get update -y
 
 
 # Base Ubuntu packages
-sudo apt-get install dkms
+sudo apt-get install -y dkms
 
 
 # Install core packages
-sudo apt-get install git subversion cmake wget curl tmux meld tree
+sudo apt-get install -y git subversion cmake wget curl tmux meld tree
 
 
 # Java
-sudo apt-get install openjdk-8-jdk maven ant
+sudo apt-get install -y openjdk-8-jdk maven ant
+
+
+# Scala
+sudo apt-get install -y scala
 
 
 # Python
-sudo apt-get install python-pip
+sudo apt-get install -y python-pip
 sudo pip install virtualenv virtualenvwrapper
 mkdir ~/.venv
 echo "" >> ~/.bashrc
@@ -44,15 +48,15 @@ echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.bashrc
 
 
 # Go
-sudo apt-get install golang
+sudo apt-get install -y golang
 
 
 # Erlang
-sudo apt-get install erlang
+sudo apt-get install -y erlang
 
 
 # Sublime
-sudo apt-get install sublime-text-installer
+sudo apt-get install -y sublime-text-installer
 ln -s /opt/sublime_text/sublime_text ~/bin/sublime
 
 
