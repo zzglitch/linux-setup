@@ -45,7 +45,7 @@ echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.bashrc
 sudo apt-get install -y golang
 
 # Erlang
-sudo apt-get install -y erlang
+sudo apt-get install -y erlang elixir
 
 # Sublime
 sudo apt-get install -y sublime-text-installer
